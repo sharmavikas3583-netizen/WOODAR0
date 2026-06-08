@@ -227,7 +227,7 @@
                     <p class="text-luxe-dark/60 font-light leading-relaxed mb-8">
                         Woodaro operates at the intersection of nature and precise engineering. By controlling the entire lifecycle—from sourcing rare, sustainable veneers to the final modular installation—we guarantee spaces that stand the test of time, both structurally and aesthetically.
                     </p>
-                    <a href="#about" class="inline-flex items-center gap-3 text-xs tracking-widest uppercase font-medium group">
+                    <a href="#ethos" class="inline-flex items-center gap-3 text-xs tracking-widest uppercase font-medium group">
                         Read Our Story
                         <span class="w-8 h-[1px] bg-luxe-dark group-hover:w-12 transition-all duration-300"></span>
                     </a>
@@ -928,15 +928,15 @@
                 aiButtons.forEach(b => {
                     b.classList.remove('border-luxe-gold', 'bg-luxe-gold/5', 'text-luxe-dark');
                     b.classList.add('border-transparent', 'text-luxe-dark/60');
-                    b.querySelector('i').classList.remove('opacity-100', 'text-luxe-gold');
-                    b.querySelector('i').classList.add('opacity-0');
-                    b.querySelector('span.text-xs:not(.text-luxe-dark\\/60)').classList.add('text-luxe-dark/60');
+                    var bIcon = b.querySelector('i');
+                    if (bIcon) { bIcon.classList.remove('opacity-100', 'text-luxe-gold'); bIcon.classList.add('opacity-0'); }
+                    b.querySelectorAll('span').forEach(function(sp) { sp.classList.add('text-luxe-dark/60'); });
                 });
                 
                 this.classList.remove('border-transparent', 'text-luxe-dark/60');
                 this.classList.add('border-luxe-gold', 'bg-luxe-gold/5', 'text-luxe-dark');
-                this.querySelector('i').classList.remove('opacity-0');
-                this.querySelector('i').classList.add('opacity-100', 'text-luxe-gold');
+                var activeIcon = this.querySelector('i');
+                if (activeIcon) { activeIcon.classList.remove('opacity-0'); activeIcon.classList.add('opacity-100', 'text-luxe-gold'); }
                 
                 // 2. Trigger Loading State
                 loader.classList.remove('hidden');
